@@ -1,5 +1,5 @@
 # Summary
-This program was created to perform Jamf Pro API LAPS Operations. It is a menu based program with basic permissions checking and as robust error checking & error message handling as a I can include.
+This program was created to perform Jamf Pro API LAPS Operations. It is a menu based cli/terminal only program with basic permissions checking and as robust error checking & error message handling as a I can include. Will work for MacOS, Windows, or Linux assuming you have Python 3 installed. 
 
 ## Current functionality includes:
 * Utilize basic authentication credentials (username/password) to acquire a bearer token for future API calls to Jamf Pro.
@@ -38,3 +38,7 @@ Run the following command to install the required libraries in order to run the 
 ```python C:\path\to\jss-laps.py```
 * Linux/MacOS:
 ```python3 /path/to/jss-laps.py```
+
+# Known issues: 
+* Entering a URL that technically resolves but is not your Jamf Pro server will throw an error and gracefully exit the script. This is due to the "requests" library and how it handles 404's. The error message includes a warning to reset whatever password you used to attempt the authentication with since I cannot stop folks from typing in malicious URL's on accident (nor check for them before proceeding). 
+* Users with extremely weird permissions in Jamf Pro may run into some unhandled exceptions, or at least a fair amount of issues using this script. Currently the script only does permissions checking by ensuring that your user account has the ability to view the number pending password rotations and handles any potential 403 errors after that initial check as best it can. Future updates will include functionality to pre-screen permissions based on the details contained in a users' authentication token rather than a simple check and attempting to handle potential 403 errors when they come up.
