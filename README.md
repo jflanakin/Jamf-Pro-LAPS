@@ -31,7 +31,7 @@ Run the following command to install the required libraries in order to run the 
 ```pip install -r requirements.txt```
 
 * Linux/MacOS: 
-```pip3 install -r requirenments.txt```
+```pip3 install -r requirements.txt```
 
 # Running the script:
 * Windows:
